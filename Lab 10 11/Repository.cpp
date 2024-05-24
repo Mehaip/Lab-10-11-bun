@@ -43,20 +43,23 @@ void MaterieRepository::update_materie(int position, string new_nume, string new
 
 void FileRepository::load_from_file() {
 
-	std::ifstream fin(filename);
+	std::ifstream fin("Text.txt");
 	string line;
 	while (getline(fin, line)) {
-		istringstream iss(line);
-		string nume_materie;
-		iss >> nume_materie;
-		string profesor;
-		iss >> profesor;
-		string ore;
-		iss >> ore;
-		int ore_int;
-		ore_int = stoi(ore);
-		Materie m(nume_materie, profesor, ore_int);
-		MaterieRepository::add_materie(m);
+		int i = 0;
+		string nume = "", profesor = "", ore = "";
+		for (; i != ' ' && i != NULL; i++)
+			nume += line[i];
+		i++;
+		for (; i != ' ' && i != NULL; i++)
+			profesor += line[i];
+		i++;
+		for (; i != ' ' && i != NULL; i++)
+			ore += line[i];
+
+		int oreInt = std::stoi(ore);
+		Materie m{ nume, profesor, oreInt };
+		this->add_materie(m);
 
 
 	}

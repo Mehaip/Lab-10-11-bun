@@ -66,8 +66,7 @@ private:
 	void load_from_file();
 	void save_to_file() const;
 public:
-	FileRepository() = default;
-	~FileRepository() override = default;
+	FileRepository() { load_from_file(); };
 
 	///add materie
 	void add_materie(const Materie& m)  override {

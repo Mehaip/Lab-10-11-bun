@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    MaterieRepository repo;
+    FileRepository repo;
     MaterieValidator val;
     Contract contract;
     MaterieService service{ repo, val, contract };
