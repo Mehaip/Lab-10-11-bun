@@ -48,13 +48,13 @@ void FileRepository::load_from_file() {
 	while (getline(fin, line)) {
 		int i = 0;
 		string nume = "", profesor = "", ore = "";
-		for (; i != ' ' && i != NULL; i++)
+		for (; line[i] != ' ' && line[i] != NULL; i++)
 			nume += line[i];
 		i++;
-		for (; i != ' ' && i != NULL; i++)
+		for (; line[i] != ' ' && line[i] != NULL; i++)
 			profesor += line[i];
 		i++;
-		for (; i != ' ' && i != NULL; i++)
+		for (; line[i] != ' ' && line[i] != NULL; i++)
 			ore += line[i];
 
 		int oreInt = std::stoi(ore);
@@ -67,7 +67,7 @@ void FileRepository::load_from_file() {
 }
 
 void FileRepository::save_to_file() const {
-	ofstream fout(filename);
+	ofstream fout("Text1.txt");
 	int index = 0;
 	for (auto& it : primeste_toate_materiile()) {
 		fout << it.getNume() << " " << it.getProfesor() << " " << it.getOre();
