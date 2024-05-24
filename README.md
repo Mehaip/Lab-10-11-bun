@@ -11,12 +11,12 @@
 - Să compileze fără warninguri cu warning level 4. În VS: 
   - Click dreapta pe proiect -> Properties -> C/C++ -> General: Warning Level = \W4
   - Treat Warnings As Errors = Yes
-- Să nu aibă memory leak. Folosiți CRT Library (găsiți în cursul 3 informațiile)
-- Implementați un nou algoritm de sortare (dacă colegul vostru a implementat în proiectul primit bubble sort, voi puteți face selection sort sau insertion sort sau altceva). Adăugați o opțiune în meniu ca să putem alege algoritmul de sortare dorit.
+- Să nu aibă memory leak. Folosiți CRT Library (găsiți în cursul 3 informațiile) ✅
+- Implementați un nou algoritm de sortare (dacă colegul vostru a implementat în proiectul primit bubble sort, voi puteți face selection sort sau insertion sort sau altceva). Adăugați o opțiune în meniu ca să putem alege algoritmul de sortare dorit. ✅
 
 # Lab6-7-Iteratia1:
-- Instalat/activat C++ Core Guideline Checker (vezi curs) și reparat (mai) toate erorile raportate.
-- Implementați constructorul de copiere de la clasa din domeniu, în corpul constructorului puneți un `cout` sau `println` (C++ 23). Apoi rulați aplicația și vedeți câte obiecte se creează și dacă sunt prea multe să le reduceți. La print nu ar trebui să aveți
+- Instalat/activat C++ Core Guideline Checker (vezi curs) și reparat (mai) toate erorile raportate. ✅
+- Implementați constructorul de copiere de la clasa din domeniu, în corpul constructorului puneți un `cout` sau `println` (C++ 23). Apoi rulați aplicația și vedeți câte obiecte se creează și dacă sunt prea multe să le reduceți. La print nu ar trebui să aveți ✅
 
 # Lab6-7-It2:
 - Code coverage 100%
@@ -28,17 +28,17 @@
 - Adăugați lista/vectorul vostru în proiectul VectorDinamicCPP.zip (files) - trebuie să treacă testele de acolo
 
 # Lab8-9-It1:
-- No memory leak
-- Code coverage 99%
-- Fără pointeri
-- Fără copii inutile
-- Folosiți un dicționar (`map`, `unordered_map`) pentru crearea unui raport. De exemplu: tip produs <-> câte produse de acest tip există. Să fie un raport specific problemei/entității
+- No memory leak ✅
+- Code coverage 99% ✅
+- Fără pointeri ✅
+- Fără copii inutile ✅
+- Folosiți un dicționar (`map`, `unordered_map`) pentru crearea unui raport. De exemplu: tip produs <-> câte produse de acest tip există. Să fie un raport specific problemei/entității ✅
 
 # Lab8-9-It2:
-- No memory leak
-- Code coverage 99%
-- No warnings (w4)
-- Creați o clasă pur abstractă `Repo` și un nou repo. Aplicația trebuie să pornească și cu acest repo, pe lângă cel pe care îl aveți (pe rând). Repo nou să țină datele într-un dicționar (`map`, `unordered_map`). La constructor să primească o probabilitate (o valoare între 0 și 1) și dacă apelăm orice metodă din repo, metoda să arunce exceptie cu probabilitatea dată.
+- No memory leak ✅
+- Code coverage 99% ✅
+- No warnings (w4) ✅
+- Creați o clasă pur abstractă `Repo` și un nou repo. Aplicația trebuie să pornească și cu acest repo, pe lângă cel pe care îl aveți (pe rând). Repo nou să țină datele într-un dicționar (`map`, `unordered_map`). La constructor să primească o probabilitate (o valoare între 0 și 1) și dacă apelăm orice metodă din repo, metoda să arunce exceptie cu probabilitatea dată. ✅
 
 # Lab10-11-It1:
 - Code coverage 99%
