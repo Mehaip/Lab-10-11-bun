@@ -162,7 +162,31 @@ void MaterieGUI::initConnect() {
 		});
 
 	QWidget::connect(ascBtn, &QPushButton::clicked, [&]() {
+		int nr = service.nr_materii("ASC");
+		string mesaj = "ASC apare de ";
+		auto nrStr = std::to_string(nr);
+		mesaj += nrStr;
+		mesaj += " ori!";
+		QMessageBox::information(nullptr, "Nr. ASC", QString::fromStdString(mesaj));
+		});
 
+	QWidget::connect(oopBtn, &QPushButton::clicked, [&]() {
+		int nr = service.nr_materii("POO");
+		string mesaj = "POO apare de ";
+		auto nrStr = std::to_string(nr);
+		mesaj += nrStr;
+		mesaj += " ori!";
+		QMessageBox::information(nullptr, "Nr. POO", QString::fromStdString(mesaj));
+		});
+
+	QWidget::connect(bioBtn, &QPushButton::clicked, [&]() {
+		int nr = service.nr_materii("Biologie");
+		string mesaj = "Bio apare de ";
+		auto nrStr = std::to_string(nr);
+		mesaj += nrStr;
+		mesaj += " ori!";
+		QMessageBox::information(nullptr, "Nr. Bio", QString::fromStdString(mesaj));
 		});
 
 }
+

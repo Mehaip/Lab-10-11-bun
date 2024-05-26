@@ -99,5 +99,7 @@ public:
 	vector<MaterieDTO> contract_raport();
 	vector<Materie> contract_get_all();
 
+	int nr_materii(string m);
+
 
 };

@@ -169,3 +169,13 @@ vector<Materie> MaterieService::contract_get_all() {
 	return contract.primeste_toate();
 }
 
+int MaterieService::nr_materii(string materie) {
+	int nr = 0;
+	for (auto& it : primeste_toate_materiile()) {
+		if (it.getNume() == materie)
+			nr++;
+	}
+
+	return nr;
+}
+
