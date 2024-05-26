@@ -12,14 +12,14 @@ class MaterieGUI : public QWidget
 public:
 	MaterieGUI(MaterieService& service) : service{ service } {
 		initGUI();
-		list_add();
+		list_add(service.primeste_toate_materiile());
 		initConnect();
 	};
 
 private:
 	MaterieService& service;
 	void initGUI();
-	void list_add();
+	void list_add(vector<Materie> a);
 	void initConnect();
 	QListWidget* list = new QListWidget{};
 	QLineEdit* nume_line = new QLineEdit{};
@@ -28,5 +28,10 @@ private:
 	QPushButton* addBtn = new QPushButton{"&Add"};
 	QPushButton* delBtn = new QPushButton{ "&Delete" };
 	QPushButton* modBtn = new QPushButton{ "&Modify" };
+	QPushButton* exitBtn = new QPushButton{ "&Exit" };
 
+	QPushButton* sortBtn = new QPushButton{ "&Sort by name" };
+	QPushButton* filterBtn = new QPushButton{ "&Filter by profesor" };
+	QPushButton* resetBtn = new QPushButton{ "&Reset" };
+	QLineEdit* profesor_filter_line = new QLineEdit{};
 };

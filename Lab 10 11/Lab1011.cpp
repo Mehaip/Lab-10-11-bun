@@ -2,6 +2,8 @@
 #include "qlayout.h"
 #include "qformlayout.h"
 #include "qmessagebox.h"
+#include <iostream>
+#include <windows.h>
 
 
 void MaterieGUI::initGUI() {
@@ -17,15 +19,24 @@ void MaterieGUI::initGUI() {
 	col1->addRow(addBtn);
 	col1->addRow(delBtn);
 	col1->addRow(modBtn);
+	col1->addRow(exitBtn);
 	mainLy->addLayout(col1);
+
+	auto col2 = new QFormLayout{};
+	col2->addRow(sortBtn);
+	col2->addRow(filterBtn);
+	col2->addRow(profesor_filter_line);
+	col2->addRow(resetBtn);
+
+
+	mainLy->addLayout(col2);
 }
 
-void MaterieGUI::list_add() {
+void MaterieGUI::list_add(vector<Materie> materii) {
 	list->blockSignals(true);
 	list->clear();
 	list->blockSignals(false);
 
-	vector<Materie> materii = service.primeste_toate_materiile();
 	string str;
 	for (auto& it : materii) {
 		str = "";
@@ -72,7 +83,7 @@ void MaterieGUI::initConnect() {
 
 		try {
 			service.addMaterieService(nume, profesor, oreInt);
-			list_add();
+			list_add(service.primeste_toate_materiile());
 		}
 		catch (ValidationException& e){
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
@@ -87,7 +98,7 @@ void MaterieGUI::initConnect() {
 
 		try {
 			service.delete_materie(nume, profesor);
-			list_add();
+			list_add(service.primeste_toate_materiile());
 		}
 		catch (std::invalid_argument& e) {
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.what()));
@@ -114,7 +125,7 @@ void MaterieGUI::initConnect() {
 
 		try {
 			service.update_materie(nume, profesor, nume_nou, profesor_nou, ore_nou);
-			list_add();
+			list_add(service.primeste_toate_materiile());
 		}
 		catch (ValidationException& e) {
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
@@ -122,4 +133,28 @@ void MaterieGUI::initConnect() {
 	
 		
 		});
+
+	QWidget::connect(exitBtn, &QPushButton::clicked, [&]() {
+
+		QMessageBox::information(nullptr, "Exit", "Program will close.");
+		close();
+		});
+
+	QWidget::connect(sortBtn, &QPushButton::clicked, [&]() {
+
+		vector<Materie> sorted = service.sort_func(1);
+		list_add(sorted);
+		});
+
+	QWidget::connect(filterBtn, &QPushButton::clicked, [&]() {
+
+		auto profesor = profesor_filter_line->text().toStdString();
+		vector<Materie> filtered = service.filter_by_profesor(profesor);
+		list_add(filtered);
+		});
+
+	QWidget::connect(resetBtn, &QPushButton::clicked, [&]() {
+		list_add(service.primeste_toate_materiile());
+		});
+
 }
