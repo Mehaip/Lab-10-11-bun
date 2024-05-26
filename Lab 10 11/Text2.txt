@@ -1,0 +1,55 @@
+<html>
+<body>
+<head>
+    <h3 style=" font-family: 'Times New Roman',serif; color:black; ">Contract cu materii</h3>
+    </head>
+<style>
+    p {
+        color: #D7BDE2 ;
+        background-color: #A9CCE3 ;
+        border: 1px solid black; }
+    table,th,td{
+        border: 1px solid black;
+    }
+    th{
+        color: black;
+    }
+    body{
+        background-color: #F9FA77;
+    }
+</style>
+<table>
+
+        <th>Id</th>
+        <th>Nume</th>
+        <th>Profesor</th>
+        <th>Ore</th>
+<tr>
+<th>1</th>
+<th>Fizica</th>
+<th>Ion</th>
+<th>20</th>
+</tr>
+<tr>
+<th>2</th>
+<th>Chimie</th>
+<th>Mircea</th>
+<th>30</th>
+</tr>
+<tr>
+<th>3</th>
+<th>Biologie</th>
+<th>Maria</th>
+<th>25</th>
+</tr>
+<tr>
+<th>4</th>
+<th>Biologie</th>
+<th>Mihail</th>
+<th>6</th>
+</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,9 +1,11 @@
 #include "Lab1011.h"
 #include <QtWidgets/QApplication>
 #include "Service.h"
+#include "testService.h"
 
 int main(int argc, char *argv[])
 {
+    TestService test;
     FileRepository repo;
     MaterieValidator val;
     Contract contract;

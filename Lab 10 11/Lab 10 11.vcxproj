@@ -109,12 +109,14 @@
     <ClInclude Include="MaterieDTO.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="testService.h" />
     <ClInclude Include="Undo.h" />
     <ClInclude Include="Validators.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
     <Text Include="Text1.txt" />
+    <Text Include="Text2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
