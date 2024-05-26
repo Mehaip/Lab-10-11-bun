@@ -69,6 +69,7 @@ private:
 		vector <Materie> materii = service.primeste_toate_materiile();
 		assert(materii.size() == 12);
 		assert(materii[11].getNume() == "Sport");
+		assert(service.nr_materii("ASC") == 1);
 	}
 
 	void test_filter_by_ore() {
@@ -133,5 +134,7 @@ private:
 		service.update_materie("ASC", "Mircea", "POO", "Ana", 20);
 		service.undo();
 		assert(service.get_materie_position("ASC", "Mircea") != -1);
+
 	}
+
 };

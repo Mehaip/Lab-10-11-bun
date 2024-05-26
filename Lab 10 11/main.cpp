@@ -2,10 +2,12 @@
 #include <QtWidgets/QApplication>
 #include "Service.h"
 #include "testService.h"
+#include "testRepo.h"
 
 int main(int argc, char *argv[])
 {
-    TestService test;
+    TestService testS;
+   /// TestRepo testR;
     FileRepository repo;
     MaterieValidator val;
     Contract contract;

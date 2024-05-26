@@ -109,6 +109,7 @@
     <ClInclude Include="MaterieDTO.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="testRepo.h" />
     <ClInclude Include="testService.h" />
     <ClInclude Include="Undo.h" />
     <ClInclude Include="Validators.h" />
