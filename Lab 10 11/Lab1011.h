@@ -34,4 +34,8 @@ private:
 	QPushButton* filterBtn = new QPushButton{ "&Filter by profesor" };
 	QPushButton* resetBtn = new QPushButton{ "&Reset" };
 	QLineEdit* profesor_filter_line = new QLineEdit{};
+
+	QPushButton* ascBtn = new QPushButton{ "ASC" };
+	QPushButton* oopBtn = new QPushButton{ "OOP" };
+	QPushButton* bioBtn = new QPushButton{ "Biologie" };
 };

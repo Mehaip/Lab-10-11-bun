@@ -4,7 +4,7 @@
 #include "qmessagebox.h"
 #include <iostream>
 #include <windows.h>
-
+#include "qlabel.h"
 
 void MaterieGUI::initGUI() {
 	auto mainLy = new QHBoxLayout{};
@@ -27,6 +27,10 @@ void MaterieGUI::initGUI() {
 	col2->addRow(filterBtn);
 	col2->addRow(profesor_filter_line);
 	col2->addRow(resetBtn);
+	col2->addWidget(new QLabel{ "Afisare nr materii" });
+	col2->addRow(ascBtn);
+	col2->addRow(oopBtn);
+	col2->addRow(bioBtn);
 
 
 	mainLy->addLayout(col2);
@@ -155,6 +159,10 @@ void MaterieGUI::initConnect() {
 
 	QWidget::connect(resetBtn, &QPushButton::clicked, [&]() {
 		list_add(service.primeste_toate_materiile());
+		});
+
+	QWidget::connect(ascBtn, &QPushButton::clicked, [&]() {
+
 		});
 
 }
