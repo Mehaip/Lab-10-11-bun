@@ -29,7 +29,7 @@ public:
 		if (m.getProfesor().length() < 2)
 			errors.push_back("Numele profesorului trebuei sa aiba cel putin 2 caractere");
 
-		if (m.getOre() < 3)
+		if (m.getOre() < 4)
 			errors.push_back("O materie dureaza cel putin 4 ore.");
 
 		if (errors.size() > 0)

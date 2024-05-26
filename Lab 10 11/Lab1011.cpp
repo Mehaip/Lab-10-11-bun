@@ -1,6 +1,7 @@
 #include "Lab1011.h"
 #include "qlayout.h"
 #include "qformlayout.h"
+#include "qmessagebox.h"
 
 
 void MaterieGUI::initGUI() {
@@ -64,14 +65,17 @@ void MaterieGUI::initConnect() {
 	QWidget::connect(addBtn, &QPushButton::clicked, [&]() {
 		auto nume = (nume_line->text()).toStdString();
 		auto profesor = profesor_line->text().toStdString();
-		auto ore = stoi(ore_line->text().toStdString());
+		auto ore = ore_line->text().toStdString();
+		if (ore == "")
+			ore = "1";
+		int oreInt = stoi(ore);
 
 		try {
-			service.addMaterieService(nume, profesor, ore);
+			service.addMaterieService(nume, profesor, oreInt);
 			list_add();
 		}
-		catch (std::runtime_error& e){
-			std::cout << e.what();
+		catch (ValidationException& e){
+			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
 		}
 
 
