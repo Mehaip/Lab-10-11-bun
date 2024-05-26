@@ -25,6 +25,8 @@ private:
 	QLineEdit* nume_line = new QLineEdit{};
 	QLineEdit* profesor_line = new QLineEdit{};
 	QLineEdit* ore_line = new QLineEdit{};
-	QPushButton* addBtn = new QPushButton{};
+	QPushButton* addBtn = new QPushButton{"&Add"};
+	QPushButton* delBtn = new QPushButton{ "&Delete" };
+	QPushButton* modBtn = new QPushButton{ "&Modify" };
 
 };

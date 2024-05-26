@@ -14,10 +14,16 @@ void MaterieGUI::initGUI() {
 	col1->addRow("Profesor", profesor_line);
 	col1->addRow("Ore", ore_line);
 	col1->addRow(addBtn);
+	col1->addRow(delBtn);
+	col1->addRow(modBtn);
 	mainLy->addLayout(col1);
 }
 
 void MaterieGUI::list_add() {
+	list->blockSignals(true);
+	list->clear();
+	list->blockSignals(false);
+
 	vector<Materie> materii = service.primeste_toate_materiile();
 	string str;
 	for (auto& it : materii) {
@@ -60,9 +66,46 @@ void MaterieGUI::initConnect() {
 		auto profesor = profesor_line->text().toStdString();
 		auto ore = stoi(ore_line->text().toStdString());
 
-		service.addMaterieService(nume, profesor, ore);
+		try {
+			service.addMaterieService(nume, profesor, ore);
+			list_add();
+		}
+		catch (std::runtime_error& e){
+			std::cout << e.what();
+		}
 
 
+		});
 
+	QWidget::connect(delBtn, &QPushButton::clicked, [&]() {
+		auto nume = (nume_line->text()).toStdString();
+		auto profesor = profesor_line->text().toStdString();
+
+		service.delete_materie(nume, profesor);
+		list_add();
+		});
+
+	QWidget::connect(modBtn, &QPushButton::clicked, [&]() {
+		auto lst = list->selectedItems();
+		auto item = lst.at(0);
+		auto line = (item->text()).toStdString();
+		string nume = "";
+		string profesor = "";
+		int i = 0;
+		for (; line[i] != ' '; i++)
+			nume += line[i];
+
+		i++;
+		for (; line[i] != ' '; i++)
+			profesor += line[i];
+
+		string nume_nou = nume_line->text().toStdString();
+		string profesor_nou = profesor_line->text().toStdString();
+		int ore_nou = stoi(ore_line->text().toStdString());
+
+		service.update_materie(nume, profesor, nume_nou, profesor_nou, ore_nou);
+		list_add();
+	
+		
 		});
 }
