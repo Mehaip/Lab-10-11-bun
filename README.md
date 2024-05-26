@@ -42,7 +42,7 @@
 
 # Lab10-11-It1:
 - Code coverage 99%
-- La deschiderea ferestrei pe partea dreaptă să apară butoane pentru fiecare tip de produs existent în aplicație (produs este un exemplu, fiecare folosește ce entitate are, puteți folosi raportul făcut de voi la alt lab). La deschiderea ferestrei se adaugă dinamic butoane în funcție de ce produse există deja în aplicație (similar la celelalte enunțuri, ex. la filme să fie buton pentru fiecare gen existent, etc.). La apăsarea butonului să se deschidă un `MessageBox` în care să apară numărul de produse de tipul respectiv.
+- La deschiderea ferestrei pe partea dreaptă să apară butoane pentru fiecare tip de produs existent în aplicație (produs este un exemplu, fiecare folosește ce entitate are, puteți folosi raportul făcut de voi la alt lab). La deschiderea ferestrei se adaugă dinamic butoane în funcție de ce produse există deja în aplicație (similar la celelalte enunțuri, ex. la filme să fie buton pentru fiecare gen existent, etc.). La apăsarea butonului să se deschidă un `MessageBox` în care să apară numărul de produse de tipul respectiv. ✅
 
 # Lab10-11-It2:
 - Dacă aveți în fereastră listă, înlocuiți-o cu un tabel
