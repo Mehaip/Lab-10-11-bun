@@ -43,17 +43,14 @@ void MaterieService::add_default() {
 }
 
 void MaterieService::delete_materie(string nume, string profesor) {
-	try {
-		if (get_materie_position(nume, profesor) == -1)
-			throw std::invalid_argument("Materia nu exista in lista.\n");
 		int materie_position = get_materie_position(nume, profesor);
+		if (materie_position == -1)
+			throw std::invalid_argument("Materia nu exista in lista.\n");
+
 		Materie materie_stearsa = this->primeste_toate_materiile()[materie_position];
 		repo.delete_materie(materie_position);
 		undoActions.push_back(new UndoDel(repo, materie_stearsa, materie_position));
-	}
-	catch (std::runtime_error& e) {
-		std::cout << e.what();
-	}
+	
 }
 
 int MaterieService::get_materie_position(string nume, string profesor) const {
@@ -62,7 +59,6 @@ int MaterieService::get_materie_position(string nume, string profesor) const {
 }
 
 void MaterieService::update_materie(string nume, string profesor, string new_nume, string new_profesor, int new_ore) {
-	try {
 		if (get_materie_position(nume, profesor) == -1)
 			throw std::invalid_argument("Materia nu exista in lista.\n");
 		Materie materie = Materie{ new_nume, new_profesor, new_ore };
@@ -73,10 +69,7 @@ void MaterieService::update_materie(string nume, string profesor, string new_num
 		int materie_position = get_materie_position(nume, profesor);
 		repo.update_materie(materie_position, new_nume, new_profesor, new_ore);
 		undoActions.push_back(new UndoMod(repo, materie, materie_veche));
-	}
-	catch (std::runtime_error& e) {
-		std::cout << e.what();
-	}
+
 }
 
 

@@ -85,8 +85,13 @@ void MaterieGUI::initConnect() {
 		auto nume = (nume_line->text()).toStdString();
 		auto profesor = profesor_line->text().toStdString();
 
-		service.delete_materie(nume, profesor);
-		list_add();
+		try {
+			service.delete_materie(nume, profesor);
+			list_add();
+		}
+		catch (std::invalid_argument& e) {
+			QMessageBox::warning(this, "Warning", QString::fromStdString(e.what()));
+		}
 		});
 
 	QWidget::connect(modBtn, &QPushButton::clicked, [&]() {
@@ -107,8 +112,13 @@ void MaterieGUI::initConnect() {
 		string profesor_nou = profesor_line->text().toStdString();
 		int ore_nou = stoi(ore_line->text().toStdString());
 
-		service.update_materie(nume, profesor, nume_nou, profesor_nou, ore_nou);
-		list_add();
+		try {
+			service.update_materie(nume, profesor, nume_nou, profesor_nou, ore_nou);
+			list_add();
+		}
+		catch (ValidationException& e) {
+			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
+		}
 	
 		
 		});
