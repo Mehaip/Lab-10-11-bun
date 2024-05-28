@@ -78,7 +78,7 @@ void FileRepository::save_to_file() const {
 }
 
 ///Probability
-
+/*
 void ProbabilityRepo::det_luck() const {
 	///utilizatorul introduce chance (0 -> 1)
 	int nr = rand() % 100;
@@ -163,4 +163,4 @@ int ProbabilityRepo::get_materie_position(string nume, string profesor) const {
 			return it.first;
 	}
 	return -1;
-}
+}*/

@@ -118,6 +118,7 @@ private:
 		service.contract_random(4);
 		vector<Materie> sir = service.contract_get_all();
 		service.contract_export("Text2.txt");
+		service.contract_raport();
 	}
 
 	void test_undo() {
