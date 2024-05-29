@@ -10,6 +10,7 @@ void MaterieGUI::initGUI() {
 	auto mainLy = new QHBoxLayout{};
 	setLayout(mainLy);
 	mainLy->addWidget(list);
+	mainLy->addWidget(table);
 
 	auto col1 = new QFormLayout{};
 
@@ -88,10 +89,12 @@ void MaterieGUI::initConnect() {
 		try {
 			service.addMaterieService(nume, profesor, oreInt);
 			list_add(service.primeste_toate_materiile());
+			initTable();
 		}
 		catch (ValidationException& e){
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
 		}
+		
 
 
 		});
@@ -103,6 +106,7 @@ void MaterieGUI::initConnect() {
 		try {
 			service.delete_materie(nume, profesor);
 			list_add(service.primeste_toate_materiile());
+			initTable();
 		}
 		catch (std::invalid_argument& e) {
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.what()));
@@ -130,11 +134,12 @@ void MaterieGUI::initConnect() {
 		try {
 			service.update_materie(nume, profesor, nume_nou, profesor_nou, ore_nou);
 			list_add(service.primeste_toate_materiile());
+			initTable();
 		}
 		catch (ValidationException& e) {
 			QMessageBox::warning(this, "Warning", QString::fromStdString(e.getErrorMessages()));
 		}
-	
+		
 		
 		});
 
@@ -188,5 +193,17 @@ void MaterieGUI::initConnect() {
 		QMessageBox::information(nullptr, "Nr. Bio", QString::fromStdString(mesaj));
 		});
 
+}
+
+void MaterieGUI::initTable() {
+	table->setRowCount(service.primeste_toate_materiile().size());
+	table->setColumnCount(3);
+	int row = 0;
+	for (auto& it : service.primeste_toate_materiile()) {
+		table->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(it.getNume())));
+		table->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(it.getProfesor())));
+		table->setItem(row, 2, new QTableWidgetItem(QString::fromStdString(std::to_string(it.getOre()))));
+		row++;
+	}
 }
 

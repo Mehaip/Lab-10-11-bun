@@ -3,13 +3,12 @@ POO Ana 10
 Mate Larisa 15
 Logica Mihai 24
 Fizica Ion 20
-Chimie Mircea 30
 Biologie Maria 25
 POO Cocrea 60
 Sport Zulnia 4
 Biologie Paduraru 10
 Biologie Mihail 6
-Sport Andrei 5
 ASC Alexandru 40
 POO Amir 23
+Biologie Ana 10
 Biologie Ana 10
