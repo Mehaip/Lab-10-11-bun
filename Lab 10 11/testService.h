@@ -14,6 +14,9 @@ public:
 		test_sort();
 		test_contract();
 		test_undo();
+		test_validator();
+		test_insert();
+		test_get_materie_position();
 	};
 private:
 
@@ -136,6 +139,35 @@ private:
 		service.undo();
 		assert(service.get_materie_position("ASC", "Mircea") != -1);
 
+	}
+
+
+	void test_validator() {
+		MaterieRepository repo;
+		MaterieValidator val;
+		Contract contract;
+		MaterieService service(repo, val, contract);
+		try {
+			service.addMaterieService("a", "b", 1);
+		}
+		catch (ValidationException& e) {
+			std::cout << e.getErrorMessages();
+		}
+	}
+
+	void test_insert() {
+		MaterieRepository repo;
+		Materie m{ "aaaa", "bbbb", 30 };
+		repo.insert_materie(m, 0);
+	}
+
+	void test_get_materie_position() {
+		MaterieRepository repo;
+		MaterieValidator val;
+		Contract contract;
+		MaterieService service(repo, val, contract);
+
+		assert(service.get_materie_position("aaa", "bb") == -1);
 	}
 
 };

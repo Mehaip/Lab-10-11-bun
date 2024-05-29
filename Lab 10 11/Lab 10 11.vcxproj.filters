@@ -81,9 +81,6 @@
     <ClInclude Include="testService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="testRepo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt">

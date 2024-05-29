@@ -3,7 +3,7 @@
 class ActiuneUndo {
 public:
     virtual void doUndo() = 0;
-    virtual ~ActiuneUndo() = default;
+    //virtual ~ActiuneUndo() = default;
 
 };
 

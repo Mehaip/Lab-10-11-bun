@@ -75,52 +75,7 @@ public:
 	};
 
 	///inseram materie pe pozitia introdusa
-	void insert_materie(const Materie& m, int poz) override {
-		MaterieRepository::insert_materie(m, poz);
-		save_to_file();
-	};
-
-	/// sterge materia in functie de pozitia primita
-	void delete_materie(int position) override {
-		MaterieRepository::delete_materie(position);
-		save_to_file();
-	};
-
-	///modifica materia in functie de pozitia primita si noile date
-	void update_materie(int position, string new_nume, string new_profesor, int new_ora) override {
-		MaterieRepository::update_materie(position, new_nume, new_profesor, new_ora);
-		save_to_file();
-	};
-
-};
-
-class ProbabilityRepo :public AbstractRepo {
-private:
-	map<int, Materie> elems;
-	float prob;
-	void det_luck() const;
-public:
-	ProbabilityRepo() = default;
-	explicit ProbabilityRepo(float chance) : prob{ chance } {};
-
-
-	///print all materie
-	const vector<Materie>& primeste_toate_materiile() const override;
-
-	///add materie
-	void add_materie(const Materie& m)  override;
-
-	/// sterge materia in functie de pozitia primita
-	void delete_materie(int position) override;
-
-	///modifica materia in functie de pozitia primita si noile date
-	void update_materie(int position, string new_nume, string new_profesor, int new_ora) override;
-
-	void insert_materie(const Materie& m, int poz) override;
-
-	int get_materie_position(string nume, string profesor) const override;
-
-
 
 
 };
+
