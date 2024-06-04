@@ -46,4 +46,4 @@
 
 # Lab10-11-It2:
 - Dacă aveți în fereastră listă, înlocuiți-o cu un tabel
-- Dacă aveți în fereastră tabel, adăugați lângă o listă
+- Dacă aveți în fereastră tabel, adăugați lângă o listă ✅
