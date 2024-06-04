@@ -9,6 +9,10 @@
 using namespace std;
 
 void Contract::add_materie_to_contract(const Materie& m) {
+    
+    for (auto& it : materii_contract)
+        if (m.getNume() == it.getNume() && m.getProfesor() == it.getProfesor())
+            throw std::invalid_argument("Materie deja existenta in contract.");
 
     materii_contract.push_back(m);
 }
