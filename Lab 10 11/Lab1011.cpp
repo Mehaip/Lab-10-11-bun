@@ -196,7 +196,7 @@ void MaterieGUI::initConnect() {
 		});
 
 	QWidget::connect(contractBtn, &QPushButton::clicked, [&]() {
-		contractWidget->show();
+		c.show();
 		});
 
 }

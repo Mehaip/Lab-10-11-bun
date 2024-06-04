@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ContractGUI.cpp" />
     <ClCompile Include="ContractStudii.cpp" />
     <ClCompile Include="Materie.cpp" />
     <ClCompile Include="MaterieDTO.cpp" />
@@ -99,6 +100,7 @@
     <ClCompile Include="Service.cpp" />
     <QtRcc Include="Lab1011.qrc" />
     <QtUic Include="Lab1011.ui" />
+    <ClInclude Include="ContractGUI.h" />
     <ClInclude Include="Lab1011.h" />
     <ClCompile Include="Lab1011.cpp" />
     <ClCompile Include="main.cpp" />

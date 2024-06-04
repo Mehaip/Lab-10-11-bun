@@ -7,11 +7,12 @@
 #include "qlineedit.h"
 #include "qpushbutton.h"
 #include "qtablewidget.h"
+#include "ContractGUI.h"
 
 class MaterieGUI : public QWidget
 {
 public:
-	MaterieGUI(MaterieService& service) : service{ service } {
+	MaterieGUI(MaterieService& service, ContractGUI& c) : service{ service }, c{ c } {
 		initGUI();
 		list_add(service.primeste_toate_materiile());
 		initConnect();
@@ -20,6 +21,7 @@ public:
 
 private:
 	MaterieService& service;
+	ContractGUI& c;
 	void initGUI();
 	void list_add(vector<Materie> a);
 	void initConnect();

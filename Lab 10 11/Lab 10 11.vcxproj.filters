@@ -52,6 +52,9 @@
     <ClCompile Include="ContractStudii.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ContractGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Materie.h">
@@ -79,6 +82,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="testService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ContractGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

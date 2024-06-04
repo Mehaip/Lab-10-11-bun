@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
     MaterieService service{ repo, val, contract };
 
     QApplication a(argc, argv);
-    MaterieGUI w{service};
     ContractGUI c{ service };
+    MaterieGUI w{service, c};
+
     w.show();
     return a.exec();
 }
