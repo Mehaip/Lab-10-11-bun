@@ -29,13 +29,15 @@ void MaterieGUI::initGUI() {
 	col2->addRow(profesor_filter_line);
 	col2->addRow(resetBtn);
 	col2->addWidget(new QLabel{ "Afisare nr materii" });
-	col2->addRow(ascBtn);
+	col2->addRow(ascBtn);	
 	col2->addRow(oopBtn);
 	col2->addRow(bioBtn);
-
+	col2->addRow(contractBtn);
 
 	mainLy->addLayout(col2);
 }
+
+
 
 void MaterieGUI::list_add(vector<Materie> materii) {
 	list->blockSignals(true);
@@ -191,6 +193,10 @@ void MaterieGUI::initConnect() {
 		mesaj += nrStr;
 		mesaj += " ori!";
 		QMessageBox::information(nullptr, "Nr. Bio", QString::fromStdString(mesaj));
+		});
+
+	QWidget::connect(contractBtn, &QPushButton::clicked, [&]() {
+		contractWidget->show();
 		});
 
 }

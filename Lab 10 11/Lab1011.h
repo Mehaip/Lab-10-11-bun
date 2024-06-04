@@ -24,6 +24,7 @@ private:
 	void list_add(vector<Materie> a);
 	void initConnect();
 	void initTable();
+
 	QListWidget* list = new QListWidget{};
 	QLineEdit* nume_line = new QLineEdit{};
 	QLineEdit* profesor_line = new QLineEdit{};
@@ -41,6 +42,7 @@ private:
 	QPushButton* ascBtn = new QPushButton{ "ASC" };
 	QPushButton* oopBtn = new QPushButton{ "OOP" };
 	QPushButton* bioBtn = new QPushButton{ "Biologie" };
+	QPushButton* contractBtn = new QPushButton{ "Contract" };
 
 	QTableWidget* table = new QTableWidget{};
 
