@@ -21,6 +21,7 @@ void ContractGUI::initGUI() {
 	col1->addRow(addRandomBtn);
 	col1->addRow("Random elements", nr_line);
 	col1->addRow(emptyBtn);
+	col1->addRow(exportBtn);
 	mainLy->addLayout(col1);
 
 }
@@ -40,20 +41,32 @@ void ContractGUI::initConnect() {
 		});
 
 	QWidget::connect(addRandomBtn, &QPushButton::clicked, [&]() {
-		auto nr = stoi(nr_line->text().toStdString());
+		auto nr = nr_line->text().toStdString();
 
-		try {
-			service.contract_random(nr);
-			list_add(service.contract_get_all());
-		}
-		catch (std::invalid_argument e) {
-			QMessageBox::warning(this, "Warning", QString::fromStdString(e.what()));
+		if (nr == "")
+			QMessageBox::warning(this, "Warning", QString::fromStdString("Te rog adauga un numar de materii."));
+		else
+		{
+			int numar = stoi(nr);
+			try {
+				service.contract_random(numar);
+				list_add(service.contract_get_all());
+			}
+			catch (std::invalid_argument e) {
+				QMessageBox::warning(this, "Warning", QString::fromStdString(e.what()));
+			}
 		}
 		});
+
 
 	QWidget::connect(emptyBtn, &QPushButton::clicked, [&]() {
 		service.contract_empty();
 		list_add(service.contract_get_all());
+		});
+
+	QWidget::connect(exportBtn, &QPushButton::clicked, [&]() {
+		QMessageBox::information(nullptr, "Info", "Materii exportate cu succes in fisierul site.html!");
+		service.contract_export("site.html");
 		});
 }
 

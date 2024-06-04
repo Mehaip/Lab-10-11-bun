@@ -28,6 +28,7 @@ private:
 	QPushButton* addBtn = new QPushButton{ "&Add" };
 	QPushButton* addRandomBtn = new QPushButton{ "&Add random" };
 	QPushButton* emptyBtn = new QPushButton{ "&Empty" };
+	QPushButton* exportBtn = new QPushButton{ "&Export" };
 	QLineEdit* nr_line = new QLineEdit{};
 };
 
